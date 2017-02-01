@@ -9,13 +9,11 @@
   %body
     %nav
       .nav-wrapper
-        %a.brand-logo{:href => "#"} Logo
+        %a.brand-logo{:href => welcome_index_path} TeaMaster
         %ul#nav-mobile.right.hide-on-med-and-down
           %li
-            %a{:href => "sass.html"} Sass
+            %a{:href => ingredients_path} Ingredients
           %li
-            %a{:href => "badges.html"} Components
-          %li
-            %a{:href => "collapsible.html"} JavaScript
+            %a{:href => recipes_path} Recipes
 
     = yield
