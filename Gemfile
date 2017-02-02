@@ -23,7 +23,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 
 gem 'materialize-sass'
-
+gem "font-awesome-rails"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # Use jquery as the JavaScript library
