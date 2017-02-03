@@ -1,5 +1,9 @@
-%p#notice= notice
+%h1 
+  = @recipe.name
 
+%h5 Whats inside
+=@recipe.ingredient_measurements.each do |ingredient_measurement|
+  = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
 
 = link_to 'Edit', edit_recipe_path(@recipe)
 \|

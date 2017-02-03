@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170202053402) do
     t.integer  "ingredient_id"
     t.integer  "recipe_id"
     t.integer  "count"
-    t.string   "type"
+    t.string   "unit_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
