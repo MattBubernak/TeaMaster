@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
   # CRUD for ingriedients
   resources :ingredients
-  
+
   # CRUD for recipes
   resources :recipes
 
-
+  get 'about' => 'application#about'
   # Example of regular route:
   #get 'ingriedients/:id' => 'ingriedient#show'
 

@@ -1,0 +1,21 @@
+$light-green: #8bc34a;
+
+.recipe-ingredient-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  .circle_highlight {
+    height: 3rem;
+    width: 3rem;
+    display:inline-block;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    background: $light-green;
+  }
+}
+
+.recipe-description {
+  font-size: 1.3rem;
+  font-style: italic;
+}

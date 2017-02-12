@@ -24,7 +24,7 @@
               %i.fa.fa-book
               Recipes
 
-    .container{style: "width: 85%"}
+    .container#body-container{style: "width: 85%"}
       = yield
 
   %footer.page-footer.light-green.darken-2
@@ -40,6 +40,8 @@
               %a.grey-text.text-lighten-3{:href => recipes_path} Recipes
             %li
               %a.grey-text.text-lighten-3{:href => ingredients_path} Ingredients
+            %li
+              %a.grey-text.text-lighten-3{:href => about_path} About
     .footer-copyright
       .container
         © #{Date.today.year} BirdBucket Productions

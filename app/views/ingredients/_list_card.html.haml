@@ -1,0 +1,13 @@
+.card.darken-1{style: "height:100%"}
+  .card-content.black-text.center{style: "height:80%"}
+    %img.ingredient-img{:src => ingredient.img.url(:medium)}
+
+    %span.card-title
+      = ingredient.name
+    %p
+      = ingredient.description
+  .card-action
+    %a{:href => "#{edit_ingredient_url(ingredient.id)}"}
+      =  "Edit"
+    %a{:href => "#{ingredient_url(ingredient.id)}"}
+      =  "Show"

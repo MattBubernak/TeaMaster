@@ -1,19 +1,28 @@
 %h1.center
   = @recipe.name
 
-%h5.center
+.fixed-action-btn.horizontal
+  %a.btn-floating.btn-large.light-green.darken-2
+    %i.large.material-icons menu
+  %ul
+    %li
+      %a.btn-floating.light-green{:href => edit_recipe_path(@recipe)}
+        %i.material-icons edit
+    %li
+      %a.btn-floating.light-green
+        %i.material-icons share
+
+
+%p.recipe-description.center
+  = @recipe.description
 
 %div.recipe-ingredient-text
-  = "This recipe includes"
+  = "This recipe contains"
   %span.circle_highlight #{@recipe.ingredient_measurements.count}
-  = "ingredients."
+  = "ingredients:"
 
 - @recipe.ingredient_measurements.in_groups_of(3, false).each do |group|
   .row
     - group.each do |ingredient_measurement|
       .col.s4
         = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
-
-= link_to 'Edit', edit_recipe_path(@recipe)
-\|
-= link_to 'Back', recipes_path

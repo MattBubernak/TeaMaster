@@ -2,21 +2,26 @@
   .col.s10
     %h1 Recipes
   .col.s2.valign-wrapper.center
-    %a.btn.btn-large.waves-effect.waves-light.white.black-text{ href: new_recipe_path }
+    %a.btn.btn-large.waves-effect.waves-light.light-green.lighten-4.black-text{ href: new_recipe_path }
       %i.material-icons add
 
-- @recipes.each do |recipe|
-  .row
-    .col.s12.m6
-      .card.blue-grey.darken-1
-        .card-content.white-text
-          %span.card-title
-            = recipe.name
-          %p
-            = recipe.description
-        .card-action
-          = link_to 'Show', recipe
-          = link_to 'Edit', edit_recipe_path(recipe)
-          = link_to 'Destroy', recipe, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.scrollable
+  - @recipes.each do |recipe|
+    .row
+      .col.s12.m6
+        .card.white
+          .card-content.black-text
+            %span.card-title
+              %b
+                = recipe.name
+            %p
+              %i
+                = recipe.description
+            %p
+              = recipe.ingredient_list_string
+          .card-action
+            = link_to 'Show', recipe
+            = link_to 'Edit', edit_recipe_path(recipe)
+            = link_to 'Destroy', recipe, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
