@@ -1,7 +1,12 @@
 %h1.center
   = @recipe.name
 
-%h5.center This recipe includes #{@recipe.ingredient_measurements.count} ingredients.
+%h5.center
+
+%div.recipe-ingredient-text
+  = "This recipe includes"
+  %span.circle_highlight #{@recipe.ingredient_measurements.count}
+  = "ingredients."
 
 - @recipe.ingredient_measurements.in_groups_of(3, false).each do |group|
   .row

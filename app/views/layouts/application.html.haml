@@ -6,6 +6,8 @@
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'ingredient', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'recipe', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'equal-height-columns', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
@@ -22,7 +24,7 @@
               %i.fa.fa-book
               Recipes
 
-    .container
+    .container{style: "width: 85%"}
       = yield
 
   %footer.page-footer.light-green.darken-2

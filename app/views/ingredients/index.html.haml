@@ -1,11 +1,15 @@
-%h1 Ingredients
+.row.row-eq-height
+  .col.s10
+    %h1 Ingredients
+  .col.s2.valign-wrapper.center
+    %a.btn.btn-large.waves-effect.waves-light.white.black-text{ href: new_ingredient_path }
+      %i.material-icons add
 
 .center
   - @ingredients.in_groups_of(4, false).each do |group|
-    .row
+    .row.row-eq-height
       - group.each do |ingredient|
         .col.s3
           = render partial: 'list_card', locals: {ingredient: ingredient.decorate}
 %br
 
-= link_to 'New Ingredient', new_ingredient_path

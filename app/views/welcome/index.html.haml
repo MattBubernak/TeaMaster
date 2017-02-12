@@ -1,7 +1,25 @@
-%h1.center Hello. Welcome to Tea Master.
-.container
-  .row
-    .col.s4
-    .col.s4
-      = render partial: 'recipes/recipe_of_the_day', locals: {recipe: @recipe}
-    .col.s4
+:javascript
+  $(function() {
+    $('#hello_text').css('opacity', '0');
+    $('#remaining_text').css('opacity', '0');
+    $('#first_col').css('opacity', '0');
+    $('#second_col').css('opacity', '0');
+    $('#third_col').css('opacity', '0');
+    $('#hello_text').delay( 400 ).animate({opacity: '1'}, {duration: 1200});
+    $('#remaining_text').delay( 1000 ).animate({opacity: '1'}, {duration: 1200});
+    $('#first_col').delay( 2000 ).animate({opacity: '1'}, {duration: 500});
+    $('#second_col').delay( 2500 ).animate({opacity: '1'}, {duration: 500});
+    $('#third_col').delay( 3000 ).animate({opacity: '1'}, {duration: 500});
+  });
+%h1.center
+  %span#hello_text Hello.
+  %span#remaining_text Welcome to Tea Master.
+.row
+  .col.s4#first_col.center
+    %h4
+      thing 1
+  .col.s4#second_col.center
+    = render partial: 'recipes/recipe_of_the_day', locals: {recipe: @recipe}
+  .col.s4#third_col.center
+    %h4
+      thing 1
