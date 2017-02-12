@@ -1,5 +1,8 @@
 %p#notice= notice
 
+= @ingredient.name
+
+%img.ingredient-img{:src => @ingredient.img.url(:thumb)}
 
 = link_to 'Edit', edit_ingredient_path(@ingredient)
 \|

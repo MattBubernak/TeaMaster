@@ -4,21 +4,27 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title TeaMaster
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'ingredient', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %nav.light-green.darken-4
+    %nav.light-green.darken-2
       .nav-wrapper
         %a.brand-logo{:href => welcome_index_path} TeaMaster
         %ul#nav-mobile.right.hide-on-med-and-down
           %li
-            %a{:href => ingredients_path} Ingredients
+            %a.nav-link{:href => ingredients_path}
+              %i.fa.fa-leaf
+              Ingredients
           %li
-            %a{:href => recipes_path} Recipes
+            %a.nav-link{:href => recipes_path}
+              %i.fa.fa-book
+              Recipes
+
 
     = yield
 
-  %footer.page-footer.light-green.darken-4
+  %footer.page-footer.light-green.darken-2
     .container
       .row
         .col.l6.s12

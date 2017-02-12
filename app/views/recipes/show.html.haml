@@ -1,9 +1,13 @@
-%h1 
+%h1.center
   = @recipe.name
 
-%h5 Whats inside
-=@recipe.ingredient_measurements.each do |ingredient_measurement|
-  = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
+%h5.center This recipe includes #{@recipe.ingredient_measurements.count} ingredients.
+
+- @recipe.ingredient_measurements.in_groups_of(3, false).each do |group|
+  .row
+    - group.each do |ingredient_measurement|
+      .col.s5
+        = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
 
 = link_to 'Edit', edit_recipe_path(@recipe)
 \|

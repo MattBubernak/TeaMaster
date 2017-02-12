@@ -26,6 +26,8 @@ gem 'materialize-sass'
 gem "font-awesome-rails"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+gem 'paperclip', '~> 5.1'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

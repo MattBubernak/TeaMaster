@@ -11,5 +11,8 @@
   = f.label :description, class: ''
   = f.text_area :description, class: '', required: 'true'
 
+  = f.label :image, class: ''
+  = f.file_field :img
+
   .actions
     = f.submit 'Save'

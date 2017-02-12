@@ -1,7 +1,9 @@
 .row
-  .col.s12.m6
-    .card.light-green.darken-1
-      .card-content.white-text
+  .col.s12.m12
+    .card.darken-1
+      .card-content.black-text.center
+        %img.ingredient-img{:src => ingredient_measurement.ingredient.img.url(:medium)}
+
         %span.card-title
           = ingredient_measurement.ingredient.name
         %p
