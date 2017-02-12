@@ -1,14 +1,14 @@
-%h1 Listing recipes
+%h1 Recipes
 
 %a.btn-floating.btn-large.waves-effect.waves-light.red{ href: new_recipe_path }
   %i.material-icons add
-  
+
 - @recipes.each do |recipe|
   .row
     .col.s12.m6
       .card.blue-grey.darken-1
         .card-content.white-text
-          %span.card-title 
+          %span.card-title
             = recipe.name
           %p
             = recipe.description

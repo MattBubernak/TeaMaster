@@ -6,7 +6,7 @@
 - @recipe.ingredient_measurements.in_groups_of(3, false).each do |group|
   .row
     - group.each do |ingredient_measurement|
-      .col.s5
+      .col.s4
         = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
 
 = link_to 'Edit', edit_recipe_path(@recipe)

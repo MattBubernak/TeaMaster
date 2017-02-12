@@ -1,19 +1,11 @@
 %h1 Ingredients
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @ingredients.each do |ingredient|
-      %tr
-        %td= link_to 'Show', ingredient
-        %td= link_to 'Edit', edit_ingredient_path(ingredient)
-        %td= link_to 'Destroy', ingredient, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+.center
+  - Ingredient.all.in_groups_of(4, false).each do |group|
+    .row
+      - group.each do |ingredient|
+        .col.s3
+          = render partial: 'list_card', locals: {ingredient: ingredient}
 %br
 
 = link_to 'New Ingredient', new_ingredient_path
