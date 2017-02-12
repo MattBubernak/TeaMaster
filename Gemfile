@@ -26,7 +26,11 @@ gem 'materialize-sass'
 gem "font-awesome-rails"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+# Image attachment
 gem 'paperclip', '~> 5.1'
+
+# Decorators
+gem 'draper'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

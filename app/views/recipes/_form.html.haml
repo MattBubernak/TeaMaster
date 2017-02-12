@@ -5,11 +5,15 @@
       %ul
         - @recipe.errors.full_messages.each do |msg|
           %li= msg
-          
+
+  %h3.center Basic Info
   = f.label :name, class: ''
   = f.text_area :name, class: '', required: 'true'
 
   = f.label :description, class: ''
   = f.text_area :description, class: '', required: 'true'
+
+  %h3.center Ingredients
+
   .actions
     = f.submit 'Save'

@@ -1,11 +1,11 @@
 %h1 Ingredients
 
 .center
-  - Ingredient.all.in_groups_of(4, false).each do |group|
+  - @ingredients.in_groups_of(4, false).each do |group|
     .row
       - group.each do |ingredient|
         .col.s3
-          = render partial: 'list_card', locals: {ingredient: ingredient}
+          = render partial: 'list_card', locals: {ingredient: ingredient.decorate}
 %br
 
 = link_to 'New Ingredient', new_ingredient_path
