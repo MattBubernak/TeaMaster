@@ -1,0 +1,12 @@
+.row
+  .col.s12.m6
+    .card.light-green.darken-1
+      .card-content.white-text
+        %span.card-title
+          = ingredient_measurement.ingredient.name
+        %p
+          = ingredient_measurement.count
+          = ingredient_measurement.unit_type
+      .card-action
+        %a{:href => "#{ingredient_url(ingredient_measurement.ingredient)}"}
+          =  "#{"Learn more about " + ingredient_measurement.ingredient.name}"

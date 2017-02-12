@@ -1,0 +1,1 @@
+json.partial! "ingredient_measurements/ingredient_measurement", ingredient_measurement: @ingredient_measurement

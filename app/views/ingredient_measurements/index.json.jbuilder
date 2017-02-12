@@ -1,0 +1,1 @@
+json.array! @ingredient_measurements, partial: 'ingredient_measurements/ingredient_measurement', as: :ingredient_measurement

@@ -1,0 +1,19 @@
+%h1 Listing ingredient_measurements
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ingredient_measurements.each do |ingredient_measurement|
+      %tr
+        %td= link_to 'Show', ingredient_measurement
+        %td= link_to 'Edit', edit_ingredient_measurement_path(ingredient_measurement)
+        %td= link_to 'Destroy', ingredient_measurement, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ingredient measurement', new_ingredient_measurement_path

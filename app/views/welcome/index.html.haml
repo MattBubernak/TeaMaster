@@ -1,2 +1,7 @@
-%h1 Welcome to index
-%p Find me in app/views/welcome/index.html.haml
+%h1.center Welcome.
+.container
+  .row
+    .col.s4
+    .col.s4
+      = render partial: 'recipes/recipe_of_the_day', locals: {recipe: @recipe}
+    .col.s4
