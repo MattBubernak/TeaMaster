@@ -19,9 +19,12 @@
 .row
   .col.s4#first_col.center
     %h4
-      thing 1
+      Popular
   .col.s4#second_col.center
-    = render partial: 'recipes/recipe_of_the_day', locals: {recipe: @recipe}
+    %h4
+      Recipe of the Day
+    %a{:href => recipe_path(@recipe)}
+      = render partial: 'recipes/list_card', locals: {recipe: @recipe}
   .col.s4#third_col.center
     %h4
-      thing 1
+      Search

@@ -14,7 +14,9 @@
     %nav.light-green.darken-2
       .nav-wrapper
         %a.brand-logo{:href => welcome_index_path} TeaMaster
-        %ul#nav-mobile.right.hide-on-med-and-down
+        %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
+          %i.material-icons menu
+        %ul.right.hide-on-med-and-down
           %li
             %a.nav-link{:href => ingredients_path}
               %i.fa.fa-leaf
@@ -23,6 +25,12 @@
             %a.nav-link{:href => recipes_path}
               %i.fa.fa-book
               Recipes
+        %ul#nav-mobile.side-nav
+          %li
+            %a{:href => ingredients_path} Ingredients
+          %li
+            %a{:href => recipes_path} Recipes
+
 
     .container#body-container{style: "width: 85%"}
       = yield
@@ -47,4 +55,8 @@
         © #{Date.today.year} BirdBucket Productions
         %a.grey-text.text-lighten-4.right{:href => "#!"} More Links
 
+:javascript
+  $( document ).ready(function(){
+    $(".button-collapse").sideNav();
+  });
 

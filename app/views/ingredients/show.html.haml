@@ -1,8 +1,15 @@
-%p#notice= notice
-
-= @ingredient.name
-
-%img.ingredient-img{:src => @ingredient.img.url(:thumb)}
+.row.center
+  .col.s4
+    %h4
+      = "Recipes"
+  .col.s4
+    %h2
+      = @ingredient.name
+    %img.ingredient-img-big.center{:src => @ingredient.img.url(:medium)}
+  .col.s4
+    %h4
+      = "About"
+    = @ingredient.description
 
 = link_to 'Edit', edit_ingredient_path(@ingredient)
 \|

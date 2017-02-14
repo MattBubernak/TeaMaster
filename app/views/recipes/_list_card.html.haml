@@ -1,0 +1,14 @@
+.card.darken-1{style: "height:100%"}
+  .card-content.black-text{style: "height:80%"}
+    %span.card-title.center-align
+      %b
+        = recipe.name
+    %p
+      = recipe.ingredient_list_string
+    %br
+    %p.left-align
+      %i.light-text.recipe-description-card
+        = recipe.description_truncated
+    .left.date-stamp
+      = recipe.created_date
+  .card-action

@@ -10,6 +10,7 @@
     .row.row-eq-height
       - group.each do |ingredient|
         .col.s3
-          = render partial: 'list_card', locals: {ingredient: ingredient.decorate}
+          %a{:href => ingredient_path(ingredient.id)}
+            = render partial: 'list_card', locals: {ingredient: ingredient.decorate}
 %br
 

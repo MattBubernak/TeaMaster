@@ -5,23 +5,10 @@
     %a.btn.btn-large.waves-effect.waves-light.light-green.lighten-4.black-text{ href: new_recipe_path }
       %i.material-icons add
 
-.scrollable
-  - @recipes.each do |recipe|
-    .row
-      .col.s12.m6
-        .card.white
-          .card-content.black-text
-            %span.card-title
-              %b
-                = recipe.name
-            %p
-              %i
-                = recipe.description
-            %p
-              = recipe.ingredient_list_string
-          .card-action
-            = link_to 'Show', recipe
-            = link_to 'Edit', edit_recipe_path(recipe)
-            = link_to 'Destroy', recipe, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
+.center.scrollable
+  - @recipes.in_groups_of(2, false).each do |group|
+    .row.row-eq-height
+      - group.each do |recipe|
+        .col.s6
+          %a{:href => recipe_path(recipe.id)}
+            = render partial: 'list_card', locals: {recipe: recipe.decorate}

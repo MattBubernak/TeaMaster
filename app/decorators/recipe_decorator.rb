@@ -19,5 +19,14 @@ class RecipeDecorator < Draper::Decorator
     object.ingredient_measurements.decorate.map{ |i| i.ingredient.name}.join(" - ")
   end
 
+  def description_truncated
+    ActionController::Base.helpers.truncate(object.description, :length => 200, :separator => /\w/, :omission => "...")
+  end
+
+  def created_date
+    object.created_at.strftime("%d %b. %Y")
+  end
+
+
 
 end
