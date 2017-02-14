@@ -7,9 +7,9 @@
 
 .center.scrollable
   - @ingredients.in_groups_of(4, false).each do |group|
-    .row.row-eq-height
+    .row
       - group.each do |ingredient|
-        .col.s3
+        .col.m4.s12.l3
           %a{:href => ingredient_path(ingredient.id)}
             = render partial: 'list_card', locals: {ingredient: ingredient.decorate}
 %br
