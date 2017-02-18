@@ -1,0 +1,26 @@
+// Place all the styles related to the steep_instructions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.steep_card {
+
+}
+
+.steep_instruction_title {
+  font-size: 1rem;
+}
+
+.stacked_icon_text {
+  font-size: 1.2rem;
+  display: table-cell;
+  text-align:center;
+  vertical-align: middle;
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  span {
+    display: block;
+  }
+}

@@ -1,0 +1,25 @@
+%h1 Listing steep_instructions
+
+%table
+  %thead
+    %tr
+      %th Temperature
+      %th Time
+      %th Recipe
+      %th
+      %th
+      %th
+
+  %tbody
+    - @steep_instructions.each do |steep_instruction|
+      %tr
+        %td= steep_instruction.temperature
+        %td= steep_instruction.time
+        %td= steep_instruction.recipe
+        %td= link_to 'Show', steep_instruction
+        %td= link_to 'Edit', edit_steep_instruction_path(steep_instruction)
+        %td= link_to 'Destroy', steep_instruction, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Steep instruction', new_steep_instruction_path

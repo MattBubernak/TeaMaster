@@ -1,0 +1,1 @@
+json.array! @steep_instructions, partial: 'steep_instructions/steep_instruction', as: :steep_instruction

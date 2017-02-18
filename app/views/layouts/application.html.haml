@@ -7,6 +7,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'ingredient', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'recipe', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'steep_instructions', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'equal-height-columns', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -50,6 +51,8 @@
               %a.grey-text.text-lighten-3{:href => ingredients_path} Ingredients
             %li
               %a.grey-text.text-lighten-3{:href => about_path} About
+            %li
+              %a.grey-text.text-lighten-3{:href => about_path} Blog
     .footer-copyright
       .container
         © #{Date.today.year} BirdBucket Productions

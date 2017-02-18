@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperature: MyString
+  time: 
+  recipe_id: 
+
+two:
+  temperature: MyString
+  time: 
+  recipe_id: 

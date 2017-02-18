@@ -1,0 +1,20 @@
+.card.darken-1.recipe_card.steep_card
+  .card-content.black-text{style: "height:80%"}
+    %span.card-title.center-align
+      %b.steep_instruction_title.light-text-70
+        STEEPING GUIDE
+
+    .divider
+
+    .row.center.light-text-60
+      .col.s6.stacked_icon_text
+        %i.fa.fa-thermometer-half
+        %span
+          = steep_instruction.temperature_string
+      .col.s6.stacked_icon_text
+        %i.fa.fa-clock-o.steep_icon
+        %span
+          = steep_instruction.time_string
+      .col.s4
+
+    .divider

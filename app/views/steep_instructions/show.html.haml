@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Temperature:
+  = @steep_instruction.temperature
+%p
+  %b Time:
+  = @steep_instruction.time
+%p
+  %b Recipe:
+  = @steep_instruction.recipe
+
+= link_to 'Edit', edit_steep_instruction_path(@steep_instruction)
+\|
+= link_to 'Back', steep_instructions_path

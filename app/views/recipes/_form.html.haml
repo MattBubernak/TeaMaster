@@ -13,6 +13,15 @@
   = f.label :description, class: ''
   = f.text_area :description, class: '', required: 'true'
 
+  %h3.center Steep Instructions
+
+  = f.fields_for :steep_instruction do |ff|
+    = ff.hidden_field :recipe_id
+    = ff.label :time
+    = ff.text_area :time
+    = ff.label :temperature
+    = ff.text_area :temperature
+
   %h3.center Ingredients
 
   .actions

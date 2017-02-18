@@ -1,0 +1,19 @@
+= form_for @steep_instruction do |f|
+  - if @steep_instruction.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@steep_instruction.errors.count, "error")} prohibited this steep_instruction from being saved:"
+      %ul
+        - @steep_instruction.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :temperature
+    = f.text_field :temperature
+  .field
+    = f.label :time
+    = f.text_field :time
+  .field
+    = f.label :recipe
+    = f.text_field :recipe
+  .actions
+    = f.submit 'Save'

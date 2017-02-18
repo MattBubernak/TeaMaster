@@ -1,0 +1,1 @@
+json.partial! "steep_instructions/steep_instruction", steep_instruction: @steep_instruction

@@ -11,6 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( ingredient.scss )
+Rails.application.config.assets.precompile += %w( steep_instructions.scss )
 Rails.application.config.assets.precompile += %w( recipe.scss )
 Rails.application.config.assets.precompile += %w( equal-height-columns.css )
 Rails.application.config.assets.precompile += %w( images )
