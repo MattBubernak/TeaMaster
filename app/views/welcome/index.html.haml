@@ -13,10 +13,13 @@
     $('#third_col').delay( 3000 ).animate({opacity: '1'}, {duration: 500});
     */
   });
-%h1.center
-  %span#hello_text Hello.
-  %span#remaining_text Welcome to Tea Master.
-.row
+
+= stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track' => true
+
+%h1.center.white-text
+  /%span#hello_text Hello.
+  %span#remaining_text We Love Tea.
+.row.white-text
   .col.s4#first_col.center
     %h4
       Popular
