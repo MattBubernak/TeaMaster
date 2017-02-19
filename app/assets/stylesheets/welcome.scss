@@ -11,9 +11,13 @@ body {
   background-image:
     /* top, transparent red, faked with gradient */
     linear-gradient(
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
     ),
     /* bottom, image */
     url("/images/background.jpg");
+}
+
+#recipe_of_the_day {
+  opacity: 0.7 !important;
 }

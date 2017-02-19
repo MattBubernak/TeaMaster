@@ -14,7 +14,9 @@
   %body
     %nav.light-green.darken-2
       .nav-wrapper
-        %a.brand-logo.center{:href => welcome_index_path} TeaMaster
+        %a.brand-logo.center{:href => welcome_index_path, :style => "vertical-align:middle"}
+          / %img{:src =>"/images/logo.png", :style => "height:50px; width:70px; color:white"}
+          TeaMaster
         %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
           %i.material-icons menu
 

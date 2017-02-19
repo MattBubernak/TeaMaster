@@ -11,6 +11,10 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1.json
   def show
     @ingredient = @ingredient.decorate
+    @related_recipes = []
+    Recipe.all.each do |i|
+      @related_recipes << i if i.ingredient_measurements.any? { |ingredient_measurement| ingredient_measurement.ingredient_id == @ingredient.id }
+    end
   end
 
   # GET /ingredients/new

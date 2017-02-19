@@ -24,16 +24,24 @@
 
 %h1.center.white-text
   /%span#hello_text Hello.
-  %span#remaining_text We Love Tea.
-.row.white-text
+  %span#remaining_text Herbal Tea made Fun and Simple.
+.row.white-text.light-text-80
   .col.s4#first_col.center
+    %i.fa.fa-coffee.fa-3x.light-green-text
     %h4
-      Popular
+      Find Recipes
+    %p.left
+      With TeaMaster you can browse community submitted recipes, and learn what recipes you can make with ingredients you have.
   .col.s4#second_col.center
+    %i.fa.fa-book.fa-3x.light-green-text
     %h4
       Recipe of the Day
     %a{:href => recipe_path(@recipe)}
-      = render partial: 'recipes/list_card', locals: {recipe: @recipe}
+      #recipe_of_the_day
+        = render partial: 'recipes/list_card', locals: {recipe: @recipe}
   .col.s4#third_col.center
+    %i.fa.fa-comments.fa-3x.light-green-text
     %h4
-      Something
+      Share Recipes
+    %p.left
+      We make it easy to submit your own mixes. Get feedback on your special blends.

@@ -19,6 +19,7 @@
       .card-content.black-text.center
         %h1.center
           = @recipe.name
+
         %p.recipe-description.center
           = @recipe.description
 
@@ -32,12 +33,15 @@
             - group.each do |ingredient_measurement|
               .col.s4
                 = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
+        .divider
+
         - if @recipe.source_url.present?
           %p.center
             This recipe comes from:
             = link_to @recipe.source_url, @recipe.source_url
         %p.center
-          Submitted By: Admin
+          Submitted By: Admin on #{@recipe.created_date}
+
   - if @recipe.steep_instruction.present?
     .col.s3.center
       = render partial: 'steep_instructions/recipe_display', locals: {steep_instruction: @recipe.steep_instruction.decorate}
