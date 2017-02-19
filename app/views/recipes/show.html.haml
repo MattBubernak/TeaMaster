@@ -15,27 +15,29 @@
 
 .row
   .col.s9
-    %h1.center
-      = @recipe.name
-    %p.recipe-description.center
-      = @recipe.description
+    .card.darken-1
+      .card-content.black-text.center
+        %h1.center
+          = @recipe.name
+        %p.recipe-description.center
+          = @recipe.description
 
-    %div.recipe-ingredient-text
-      = "This recipe contains"
-      %span.circle_highlight #{@recipe.ingredient_measurements.count}
-      = "ingredients:"
+        %div.recipe-ingredient-text
+          = "This recipe contains"
+          %span.circle_highlight #{@recipe.ingredient_measurements.count}
+          = "ingredients:"
 
-    - @recipe.ingredient_measurements.in_groups_of(3, false).each do |group|
-      .row
-        - group.each do |ingredient_measurement|
-          .col.s4
-            = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
-    - if @recipe.source_url.present?
-      %p.center
-        This recipe comes from:
-        = link_to @recipe.source_url, @recipe.source_url
-    %p.center
-      Submitted By: Admin
+        - @recipe.ingredient_measurements.in_groups_of(3, false).each do |group|
+          .row
+            - group.each do |ingredient_measurement|
+              .col.s4
+                = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
+        - if @recipe.source_url.present?
+          %p.center
+            This recipe comes from:
+            = link_to @recipe.source_url, @recipe.source_url
+        %p.center
+          Submitted By: Admin
   - if @recipe.steep_instruction.present?
     .col.s3.center
       = render partial: 'steep_instructions/recipe_display', locals: {steep_instruction: @recipe.steep_instruction.decorate}
