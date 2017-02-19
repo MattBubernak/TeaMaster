@@ -29,36 +29,48 @@
           %li= msg
 
   .row
-    %h3.center The Basics
-    = f.label :name, class: ''
-    = f.text_field :name, class: '', required: 'true'
+    .col.s12
+      %ul.tabs
+        %li.tab.col.s3
+          %a.active{:href => "#basics"} The Basics
+        %li.tab.col.s3
+          %a{:href => "#ingredients"} Ingredients
+        %li.tab.col.s3
+          %a{:href => "#instruction"} Preperation Instructions
+        %li.tab.col.s3
+          %a{:href => "#finalize"} Submit
+    #basics.col.s12.active
+      %h3.center The Basics
+      = f.label :name, class: ''
+      = f.text_field :name, class: '', required: 'true'
 
-    = f.label :description, class: ''
-    = f.text_area :description, class: '', required: 'true'
+      = f.label :description, class: ''
+      = f.text_area :description, class: '', required: 'true'
+    #ingredients.col.s12
+      %h3.center What's in it?
+      .row
+        #recipe_ingredients
+          = f.fields_for :ingredient_measurements do |ingredient_meaasurement|
+            = render 'ingredient_measurement_fields', f: ingredient_meaasurement
+          %span.input-group-btn
+            = link_to_add_association "Add Ingredient", f, :ingredient_measurements, class: 'btn waves-effect waves-light btn-large'
+    #instruction.col.s12
+      %h3.center Special Instruction
+      .row
+        = f.fields_for :steep_instruction do |ff|
+          = ff.hidden_field :recipe_id
+          = ff.label :time
+          = ff.text_area :time
+          = ff.label :temperature
+          = ff.text_area :temperature
+          = f.label :preperation_notes
+          = f.text_area :preperation_notes
 
-  %h3.center Special Instruction
-  .row
-    = f.fields_for :steep_instruction do |ff|
-      = ff.hidden_field :recipe_id
-      = ff.label :time
-      = ff.text_area :time
-      = ff.label :temperature
-      = ff.text_area :temperature
-      = f.label :preperation_notes
-      = f.text_area :preperation_notes
-
-  %h3.center What's in it?
-  .row
-    #recipe_ingredients
-      = f.fields_for :ingredient_measurements do |ingredient_meaasurement|
-        = render 'ingredient_measurement_fields', f: ingredient_meaasurement
-      %span.input-group-btn
-        = link_to_add_association "Add Ingredient", f, :ingredient_measurements, class: 'btn waves-effect waves-light btn-large'
-
-  %h6.center Find this online somewhere? Lets give credit where credit is due.
-  .row
-    = f.label :source_url, class: ''
-    = f.text_field :source_url, class: ''
-  %br
-  .actions#save_recipe
-    = f.submit 'Save'
+    #finalize.col.s12
+      %h6.center Find this online somewhere? Lets give credit where credit is due.
+      .row
+        = f.label :source_url, class: ''
+        = f.text_field :source_url, class: ''
+      %br
+      .actions#save_recipe
+        = f.submit 'Save'
