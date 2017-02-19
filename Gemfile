@@ -26,6 +26,9 @@ gem 'materialize-sass'
 gem "font-awesome-rails"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+# dynamic forms
+gem 'cocoon'
+
 # Image attachment
 gem 'paperclip', '~> 5.1'
 

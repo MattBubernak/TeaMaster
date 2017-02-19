@@ -1,4 +1,26 @@
-= form_for @recipe do |f|
+:javascript
+  $(document).ready(function() {
+    $('select').material_select();
+
+    $(document).bind('ajax:beforeSend', "form.recipe_form", function(event, xhr, settings){
+      //e.preventDefault()
+      alert('before send');
+      //settings.data += "&serialized=data";
+    });
+
+    $(document).bind('ajax:success', "form.recipe_form", function(event, xhr, settings){
+      //e.preventDefault()
+      alert('done');
+      //settings.data += "&serialized=data";
+    });
+    //$("body").on("submit", "form", function(e) {
+    //  e.preventDefault()
+    //  params = $("#new_recipe").serializeArray();
+
+    //  console.log(e)
+
+    });
+= form_for(@recipe) do |f|
   - if @recipe.errors.any?
     #error_explanation
       %h2= "#{pluralize(@recipe.errors.count, "error")} prohibited this recipe from being saved:"
@@ -6,23 +28,40 @@
         - @recipe.errors.full_messages.each do |msg|
           %li= msg
 
-  %h3.center Basic Info
-  = f.label :name, class: ''
-  = f.text_area :name, class: '', required: 'true'
+  .row
+    %h3.center The Basics
+    = f.label :name, class: ''
+    = f.text_field :name, class: '', required: 'true'
 
-  = f.label :description, class: ''
-  = f.text_area :description, class: '', required: 'true'
+    = f.label :description, class: ''
+    = f.text_area :description, class: '', required: 'true'
 
   %h3.center Steep Instructions
+  .row
+    = f.fields_for :steep_instruction do |ff|
+      = ff.hidden_field :recipe_id
+      = ff.label :time
+      = ff.text_area :time
+      = ff.label :temperature
+      = ff.text_area :temperature
 
-  = f.fields_for :steep_instruction do |ff|
-    = ff.hidden_field :recipe_id
-    = ff.label :time
-    = ff.text_area :time
-    = ff.label :temperature
-    = ff.text_area :temperature
 
-  %h3.center Ingredients
+  %h3.center What's in it?
+  .row
+    #recipe_ingredients
+      = f.fields_for :ingredient_measurements do |ingredient_meaasurement|
+        = render 'ingredient_measurement_fields', f: ingredient_meaasurement
+      = link_to_add_association 'Add Ingredient', f, :ingredient_measurements
 
-  .actions
+
+  / .input-field.col.s12
+  /   %select{:multiple => "multiple"}
+  /     %option{:disabled => "disabled", :selected => "selected", :value => ""} Choose your option
+  /     - Ingredient.all.each do | ingredient |
+  /       %option{:value => "#{ingredient.id}"}
+  /         = ingredient.name
+  /   %label Materialize Multiple Select
+  %br
+
+  .actions#save_recipe
     = f.submit 'Save'

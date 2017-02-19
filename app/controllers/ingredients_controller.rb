@@ -22,6 +22,10 @@ class IngredientsController < ApplicationController
   def edit
   end
 
+  def complete_hash
+    render json: Ingredient.all.to_json
+  end
+
   # POST /ingredients
   # POST /ingredients.json
   def create
@@ -65,7 +69,9 @@ class IngredientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ingredient
-      @ingredient = Ingredient.find(params[:id])
+      if params[:id].present?
+        @ingredient = Ingredient.find(params[:id])
+      end
     end
 
     def ingredient_params

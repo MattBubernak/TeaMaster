@@ -1,0 +1,14 @@
+:javascript
+  $(document).ready(function() {
+    $('select').material_select();
+  })
+
+
+.col.s3
+  .nested-fields
+    = f.label :ingredient_id
+    = f.select :ingredient_id, Ingredient.all.collect {|i| [ i.name, i.id ] }
+    = f.label :count
+    = f.number_field :count
+    = f.check_box :_destroy
+    = link_to_remove_association "X", f

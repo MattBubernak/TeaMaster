@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  get 'ingredients/complete_hash' => 'ingredients#complete_hash'
+
   # CRUD for ingriedients
   resources :ingredients
 
@@ -15,8 +17,9 @@ Rails.application.routes.draw do
   resources :recipes
 
   get 'about' => 'application#about'
+
+
   # Example of regular route:
-  #get 'ingriedients/:id' => 'ingriedient#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

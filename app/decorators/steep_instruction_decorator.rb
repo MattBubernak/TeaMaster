@@ -10,10 +10,10 @@ class SteepInstructionDecorator < Draper::Decorator
   #     end
   #   end
   def temperature_string
-    object.temperature + " °C"
+    object.temperature + " °C" unless object.temperature.nil?
   end
 
   def time_string
-    object.time.to_s + " MIN"
+    object.time.to_s + " MIN" unless object.time.nil?
   end
 end
