@@ -34,3 +34,6 @@
   - if @recipe.steep_instruction
     .col.s3.center
       = render partial: 'steep_instructions/recipe_display', locals: {steep_instruction: @recipe.steep_instruction.decorate}
+  - if @recipe.preperation_notes
+    .col.s3.center
+      = render partial: 'preperation_notes', locals: {steep_instruction: @recipe.preperation_notes}

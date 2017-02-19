@@ -14,9 +14,10 @@
   %body
     %nav.light-green.darken-2
       .nav-wrapper
-        %a.brand-logo{:href => welcome_index_path} TeaMaster
+        %a.brand-logo.center{:href => welcome_index_path} TeaMaster
         %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
           %i.material-icons menu
+
         %ul.right.hide-on-med-and-down
           %li
             %a.nav-link{:href => ingredients_path}
@@ -31,6 +32,7 @@
             %a{:href => ingredients_path} Ingredients
           %li
             %a{:href => recipes_path} Recipes
+            %form
 
 
     .container#body-container{style: "width: 85%"}
@@ -40,23 +42,14 @@
     .container
       .row
         .col.l6.s12
-          %h5.white-text Footer Content
-          %p.grey-text.text-lighten-4 You can use rows and columns here to organize your footer content.
-        .col.l4.offset-l2.s12
-          %h5.white-text Site Navigation
-          %ul
-            %li
-              %a.grey-text.text-lighten-3{:href => recipes_path} Recipes
-            %li
-              %a.grey-text.text-lighten-3{:href => ingredients_path} Ingredients
-            %li
-              %a.grey-text.text-lighten-3{:href => about_path} About
-            %li
-              %a.grey-text.text-lighten-3{:href => about_path} Blog
+        .col.l4.offset-l2.s12.center
+          %a.grey-text.text-lighten-3{:href => recipes_path} Recipes /
+          %a.grey-text.text-lighten-3{:href => ingredients_path} Ingredients /
+          %a.grey-text.text-lighten-3{:href => about_path} About /
+          %a.grey-text.text-lighten-3{:href => about_path} Blog
     .footer-copyright
-      .container
+      .container.center
         © #{Date.today.year} BirdBucket Productions
-        %a.grey-text.text-lighten-4.right{:href => "#!"} More Links
 
 :javascript
   $( document ).ready(function(){

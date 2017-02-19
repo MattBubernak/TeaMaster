@@ -16,6 +16,12 @@
 
 = stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track' => true
 
+.input-field
+  %input#search{:required => "", :type => "search"}/
+  %label.label-icon{:for => "search"}
+    %i.material-icons search
+  %i.material-icons close
+
 %h1.center.white-text
   /%span#hello_text Hello.
   %span#remaining_text We Love Tea.
@@ -30,4 +36,4 @@
       = render partial: 'recipes/list_card', locals: {recipe: @recipe}
   .col.s4#third_col.center
     %h4
-      Search
+      Something
