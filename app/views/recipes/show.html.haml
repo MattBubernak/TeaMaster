@@ -32,7 +32,7 @@
           .row
             - group.each do |ingredient_measurement|
               .col.s4
-                = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement}
+                = render partial: 'ingredient_measurements/card_display', locals: {ingredient_measurement: ingredient_measurement.decorate}
         .divider
         %br
         - if @recipe.source_url.present?
@@ -45,6 +45,5 @@
   - if @recipe.steep_instruction.present?
     .col.s3.center
       = render partial: 'steep_instructions/recipe_display', locals: {steep_instruction: @recipe.steep_instruction.decorate}
-  - if @recipe.preperation_notes.present?
-    .col.s3.center
-      = render partial: 'preperation_notes', locals: {recipe: @recipe}
+  .col.s3.center
+    = render partial: 'preperation_notes', locals: {recipe: @recipe}

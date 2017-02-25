@@ -6,9 +6,14 @@
 
 .col.s3
   .nested-fields
+    .row
     = f.label :ingredient_id
     = f.select :ingredient_id, Ingredient.all.collect {|i| [ i.name, i.id ] }
-    = f.label :count
-    = f.number_field :count
+    .row
+      .col.s3
+        = f.number_field :count, :value => 0
+      .col.s8
+        = f.select :unit_type, ["Part","Tablespoon","Cup","Pinch","Crunch"]
+    .row
     = f.check_box :_destroy
     = link_to_remove_association "X", f

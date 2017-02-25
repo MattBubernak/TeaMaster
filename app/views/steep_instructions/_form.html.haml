@@ -11,7 +11,11 @@
     = f.text_field :temperature
   .field
     = f.label :time
-    = f.text_field :time
+    %p.range-field
+      = f.range_field :max => "100", :min => "0", :type => "range"
+  %p.range-field
+    %input#test5{:max => "100", :min => "0", :type => "range"}/
+
   .field
     = f.label :recipe
     = f.text_field :recipe

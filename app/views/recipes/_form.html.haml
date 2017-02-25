@@ -58,11 +58,18 @@
       %h3.center Special Instruction
       .row
         = f.fields_for :steep_instruction do |ff|
-          = ff.hidden_field :recipe_id
-          = ff.label :time
-          = ff.text_area :time
-          = ff.label :temperature
-          = ff.text_area :temperature
+          .row
+            = ff.hidden_field :recipe_id
+            = ff.label :time
+          .row
+            = ff.text_area :time
+            = ff.label :temperature
+          .row
+            .col.s1
+              %h3#temperature_label{:name => "temperature_label"} 24
+            .col.s6
+              %p.range-field
+                = ff.range_field :time, :max => "200", :min => "150", :type => "range", :step => 5, :name => "test", :id => 'temperature_slider', :oninput => "temperature_label.value = temperature_slider.value"
           = f.label :preperation_notes
           = f.text_area :preperation_notes
 

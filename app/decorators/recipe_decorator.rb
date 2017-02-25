@@ -27,6 +27,9 @@ class RecipeDecorator < Draper::Decorator
     object.created_at.strftime("%d %b. %Y")
   end
 
+  def preperation_notes
+    object.preperation_notes.present? ? object.preperation_notes : "None"
+  end
 
 
 end
