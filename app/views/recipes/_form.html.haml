@@ -13,6 +13,33 @@
       alert('done');
       //settings.data += "&serialized=data";
     });
+
+    function toggleThermometer(temp) {
+       if (temp > 200)
+       {
+         $('#therm-empty').hide();
+         $('#therm-half').hide();
+         $('#therm-full').show();
+       }
+       else if (temp < 165)
+       {
+         $('#therm-empty').show();
+         $('#therm-half').hide();
+         $('#therm-full').hide();
+       }
+       else {
+         $('#therm-empty').hide();
+         $('#therm-half').show();
+         $('#therm-full').hide();
+       }
+    }
+
+    $("#recipe_steep_instruction_attributes_temperature").on("input",  function(){
+      temperature_label.innerText = $('#recipe_steep_instruction_attributes_temperature')[0].value;
+      toggleThermometer($('#recipe_steep_instruction_attributes_temperature')[0].value)
+           });
+
+
     //$("body").on("submit", "form", function(e) {
     //  e.preventDefault()
     //  params = $("#new_recipe").serializeArray();
@@ -45,7 +72,7 @@
       = f.text_field :name, class: '', required: 'true'
 
       = f.label :description, class: ''
-      = f.text_area :description, class: '', required: 'true'
+      = f.text_area :description, class: 'big-text-input', required: 'true'
     #ingredients.col.s12
       %h3.center What's in it?
       .row
@@ -60,18 +87,40 @@
         = f.fields_for :steep_instruction do |ff|
           .row
             = ff.hidden_field :recipe_id
-            = ff.label :time
           .row
-            = ff.text_area :time
-            = ff.label :temperature
-          .row
-            .col.s1
-              %h3#temperature_label{:name => "temperature_label"} 24
             .col.s6
-              %p.range-field
-                = ff.range_field :time, :max => "200", :min => "150", :type => "range", :step => 5, :name => "test", :id => 'temperature_slider', :oninput => "temperature_label.value = temperature_slider.value"
-          = f.label :preperation_notes
-          = f.text_area :preperation_notes
+              .row
+                .col.s3
+                  %h5 Time
+                .col.s7
+                  .center
+                    %i.fa.fa-clock-o.fa-3x.light-green-text
+              .row.center
+                .col.s3.offset-s3
+                  = ff.number_field :time
+                .col.s3
+                  %select
+                    %option{:value => "1"} Minutes
+            .col.s6
+              .row
+                .col.s3
+                  %h5 Temperature
+                .col.s9
+                  .center
+                    %i.fa.fa-thermometer-empty.fa-3x.light-green-text#therm-empty{style: "display: none"}
+                    %i.fa.fa-thermometer-half.fa-3x.light-green-text#therm-half
+                    %i.fa.fa-thermometer-full.fa-3x.light-green-text#therm-full{style: "display: none"}
+              .row
+                .col.s3
+                  %h3
+                    %span#temperature_label{:name => "temperature_label"} 175
+                    &#8457
+                .col.s9
+                  %p.range-field
+                    = ff.range_field :temperature, :max => "250", :min => "150", :type => "range", :step => 5
+          %br
+          %h5 Preperation Notes
+          = f.text_area :preperation_notes, :class => "big-text-input"
 
     #finalize.col.s12
       %h6.center Find this online somewhere? Lets give credit where credit is due.

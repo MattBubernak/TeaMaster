@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219063405) do
+ActiveRecord::Schema.define(version: 20170225215349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +49,11 @@ ActiveRecord::Schema.define(version: 20170219063405) do
   end
 
   create_table "steep_instructions", force: :cascade do |t|
-    t.string   "temperature"
     t.integer  "time"
     t.integer  "recipe_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "temperature"
   end
 
   add_index "steep_instructions", ["recipe_id"], name: "index_steep_instructions_on_recipe_id", using: :btree
