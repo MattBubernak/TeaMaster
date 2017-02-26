@@ -45,6 +45,15 @@
           = link_to @recipe.submitter_username, user_path(@recipe.user.id)
           Submitted On: #{@recipe.created_date}
 
+    %h2.center Reviews
+    .center
+      = @recipe.reviews_description
+    - @recipe.recipe_reviews.in_groups_of(3, false).each do |group|
+      .row
+        - group.each do |recipe_review|
+          .col.s4
+            = render partial: 'recipe_reviews/list_card', locals: {recipe_review: recipe_review.decorate}
+
   - if @recipe.steep_instruction.present?
     .col.s3.center
       = render partial: 'steep_instructions/recipe_display', locals: {steep_instruction: @recipe.steep_instruction.decorate}

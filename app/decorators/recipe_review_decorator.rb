@@ -9,5 +9,7 @@ class RecipeReviewDecorator < Draper::Decorator
   #       object.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
-
+  def created_date
+    object.created_at.strftime("%d %b. %Y")
+  end
 end

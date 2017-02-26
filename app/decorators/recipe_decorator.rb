@@ -40,4 +40,16 @@ class RecipeDecorator < Draper::Decorator
     object.recipe_reviews.map{ |review| review.rating }.reduce(:+) / object.recipe_reviews.count
   end
 
+  def review_count
+    object.recipe_reviews.count
+  end
+
+  def reviews_description
+    if object.recipe_reviews.count == 0
+      "Be the first to review this recipe!"
+    else
+      "This recipe has an average rating of #{average_rating} over #{review_count} reviews."
+    end
+  end
+
 end

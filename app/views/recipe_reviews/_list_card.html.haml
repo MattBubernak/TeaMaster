@@ -1,0 +1,12 @@
+.card.darken-1.review_card
+  .card-content.black-text{style: "height:80%"}
+    %span.card-title.center-align
+      = recipe_review.user.name
+    .center.small-text
+      = recipe_review.created_date
+    .center
+      = render partial: "recipe_reviews/five_star", locals: {recipe_review: recipe_review}
+    %p.left-align
+      = recipe_review.comment
+
+  .card-action
