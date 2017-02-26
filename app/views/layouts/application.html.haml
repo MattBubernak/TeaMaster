@@ -20,7 +20,7 @@
         %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
           %i.material-icons menu
 
-        %ul.right.hide-on-med-and-down
+        %ul.left.hide-on-med-and-down
           %li
             %a.nav-link{:href => ingredients_path}
               %i.fa.fa-leaf
@@ -29,6 +29,10 @@
             %a.nav-link{:href => recipes_path}
               %i.fa.fa-book
               Recipes
+        %ul.right.hide-on-med-and-down
+          %li
+            %a.nav-link{:href => new_user_path}
+              Signup
         %ul#nav-mobile.side-nav
           %li
             %a{:href => ingredients_path} Ingredients

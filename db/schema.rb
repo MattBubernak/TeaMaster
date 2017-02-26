@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225215349) do
+ActiveRecord::Schema.define(version: 20170226070057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 20170225215349) do
   end
 
   add_index "steep_instructions", ["recipe_id"], name: "index_steep_instructions_on_recipe_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+  end
 
   add_foreign_key "ingredient_measurements", "ingredients"
   add_foreign_key "ingredient_measurements", "recipes"
