@@ -33,6 +33,7 @@
          $('#therm-full').hide();
        }
     }
+    temperature_label.innerText = $('#recipe_steep_instruction_attributes_temperature')[0].value;
 
     $("#recipe_steep_instruction_attributes_temperature").on("input",  function(){
       temperature_label.innerText = $('#recipe_steep_instruction_attributes_temperature')[0].value;
@@ -58,7 +59,7 @@
   .row
     .col.s12
       %ul.tabs
-        %li.tab.col.s3
+        %li.tab.col.s3.light-green-text
           %a.active{:href => "#basics"} The Basics
         %li.tab.col.s3
           %a{:href => "#ingredients"} Ingredients

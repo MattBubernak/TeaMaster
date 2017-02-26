@@ -15,8 +15,10 @@
 @import "font-awesome";
 @import "materialize/components/color";
 //@import "materialize/components/font/roboto/";
-$primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("yellow", "base") !default;
+$primary-color: color("light-green", "base") !default;
+$secondary-color: color("light-green", "lighten-1") !default;
+$tabs-underline-color: color("light-green", "base")!default;
+$tabs-text-color: color("light-green", "base")!default;
 $roboto-font-path: '/assets/fonts/roboto/';
 @import "materialize";
 

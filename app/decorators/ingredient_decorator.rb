@@ -14,4 +14,7 @@ class IngredientDecorator < Draper::Decorator
     object.name.titleize
   end
 
+  def description_truncated
+    ActionController::Base.helpers.truncate(object.description, :length => 75, :separator => /\w/, :omission => "...")
+  end
 end
