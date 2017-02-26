@@ -31,5 +31,13 @@ class RecipeDecorator < Draper::Decorator
     object.preperation_notes.present? ? object.preperation_notes : "None"
   end
 
+  def submitter_username
+    object.user.username
+  end
+
+  def average_rating
+    return nil unless object.recipe_reviews.count > 0
+    object.recipe_reviews.map{ |review| review.rating }.reduce(:+) / object.recipe_reviews.count
+  end
 
 end

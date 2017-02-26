@@ -19,7 +19,8 @@
       .card-content.black-text.center
         %h1.center
           = @recipe.name
-
+        .center
+          = render partial: 'recipe_reviews/five_star_rating_display', locals: {recipe: @recipe}
         %p.recipe-description.center
           = @recipe.description
 
@@ -40,7 +41,9 @@
             This recipe comes from:
             = link_to @recipe.source_url, @recipe.source_url
         %p.center
-          Submitted By: Admin on #{@recipe.created_date}
+          = "Submitted By:"
+          = link_to @recipe.submitter_username, user_path(@recipe.user.id)
+          Submitted On: #{@recipe.created_date}
 
   - if @recipe.steep_instruction.present?
     .col.s3.center

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226184734) do
+ActiveRecord::Schema.define(version: 20170226203623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 20170226184734) do
     t.datetime "img_updated_at"
   end
 
+  create_table "recipe_reviews", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.string   "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "recipe_reviews", ["recipe_id"], name: "index_recipe_reviews_on_recipe_id", using: :btree
+  add_index "recipe_reviews", ["user_id"], name: "index_recipe_reviews_on_user_id", using: :btree
+
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -46,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170226184734) do
     t.datetime "updated_at",        null: false
     t.string   "preperation_notes"
     t.string   "source_url"
+    t.integer  "user_id"
   end
 
   create_table "steep_instructions", force: :cascade do |t|
@@ -61,16 +74,19 @@ ActiveRecord::Schema.define(version: 20170226184734) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "password_digest"
     t.string   "username"
     t.string   "persistence_token"
     t.string   "crypted_password"
     t.string   "password_salt"
+    t.boolean  "admin",             default: false
   end
 
   add_foreign_key "ingredient_measurements", "ingredients"
   add_foreign_key "ingredient_measurements", "recipes"
+  add_foreign_key "recipe_reviews", "recipes"
+  add_foreign_key "recipe_reviews", "users"
   add_foreign_key "steep_instructions", "recipes"
 end

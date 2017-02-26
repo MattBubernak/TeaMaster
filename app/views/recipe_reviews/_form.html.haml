@@ -1,0 +1,10 @@
+= form_for @recipe_review do |f|
+  - if @recipe_review.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@recipe_review.errors.count, "error")} prohibited this recipe_review from being saved:"
+      %ul
+        - @recipe_review.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

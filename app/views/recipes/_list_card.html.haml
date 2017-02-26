@@ -3,6 +3,7 @@
     %span.card-title.center-align
       %b
         = recipe.name
+    = render partial: "recipe_reviews/five_star_rating_display", locals: {recipe: recipe}
     %p
       = recipe.ingredient_list_string
     %br

@@ -1,5 +1,10 @@
-%h1 New recipe
+%h1 Submit a Recipe
 
-= render 'form'
+- if current_user_session
+  = render 'form'
+- else
+  = "Only logged in users can submit a recipe."
+  = link_to "Sign Up", new_user_path
+  = link_to "Login", login_path
 
 = link_to 'Back', recipes_path

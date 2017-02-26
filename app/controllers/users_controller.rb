@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    redirect_to root_path unless current_user_session.try(:user).try(:is_admin?)
     @users = User.all
   end
 
@@ -54,6 +55,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    return unless current_user_session.user_id = @user.id || current_user_session.user.is_admin?
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

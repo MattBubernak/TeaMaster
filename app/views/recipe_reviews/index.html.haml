@@ -1,0 +1,19 @@
+%h1 Listing recipe_reviews
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @recipe_reviews.each do |recipe_review|
+      %tr
+        %td= link_to 'Show', recipe_review
+        %td= link_to 'Edit', edit_recipe_review_path(recipe_review)
+        %td= link_to 'Destroy', recipe_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Recipe review', new_recipe_review_path
