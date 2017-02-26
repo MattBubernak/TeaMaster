@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'user_sessions/new'
+
   resources :users
   resources :steep_instructions
+  resource :user_sessions
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -19,7 +23,8 @@ Rails.application.routes.draw do
 
   get 'about' => 'application#about'
 
-
+  get 'logout' => "user_sessions#destroy"
+  get 'login' => "user_sessions#new"
   # Example of regular route:
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

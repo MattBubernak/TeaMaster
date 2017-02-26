@@ -30,9 +30,20 @@
               %i.fa.fa-book
               Recipes
         %ul.right.hide-on-med-and-down
-          %li
-            %a.nav-link{:href => new_user_path}
-              Signup
+          - if current_user_session
+            %li
+              %a{:href => "#"}
+                = current_user_session.user.username
+            %li
+              %a{:href => logout_path}
+                Logout
+          - else
+            %li
+              %a.nav-link{:href => new_user_path}
+                Signup
+            %li
+              %a.nav-link{:href => login_path}
+                Login
         %ul#nav-mobile.side-nav
           %li
             %a{:href => ingredients_path} Ingredients
