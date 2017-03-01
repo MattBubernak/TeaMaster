@@ -14,6 +14,7 @@ class RecipeReviewsController < ApplicationController
 
   # GET /recipe_reviews/new
   def new
+    byebug
     @recipe_review = RecipeReview.new
   end
 
@@ -69,6 +70,6 @@ class RecipeReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_review_params
-      params.fetch(:recipe_review, {})
+      params.require(:recipe_review).permit(:recipe_id, :user_id, :rating, :comment)
     end
 end

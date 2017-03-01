@@ -11,6 +11,9 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     @recipe = @recipe.decorate
+    if (current_user && RecipeReview.where({:user_id => current_user.id, :recipe_id => @recipe.id}).count == 0)
+      @recipe_review = RecipeReview.new
+    end
   end
 
   # GET /recipes/new
