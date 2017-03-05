@@ -14,6 +14,8 @@
 
 @import "font-awesome";
 @import "materialize/components/color";
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
 //@import "materialize/components/font/roboto/";
 $primary-color: color("light-green", "base") !default;
 $secondary-color: color("light-green", "lighten-1") !default;
@@ -25,6 +27,14 @@ $roboto-font-path: '/assets/fonts/roboto/';
 
 .card {
   background-color: light-green
+}
+
+.cursive{
+  font-family: 'Dancing Script', cursive;
+}
+
+.nav-link{
+  @extend .cursive;
 }
 
 #body-container {
@@ -45,6 +55,10 @@ main {
   overflow: auto;
   max-height: 100vh;
   overflow-x:hidden;
+}
+
+h4 {
+  @extend .cursive;
 }
 
 .brand-logo{

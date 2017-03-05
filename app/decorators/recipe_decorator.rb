@@ -32,7 +32,7 @@ class RecipeDecorator < Draper::Decorator
   end
 
   def submitter_username
-    object.user.username
+    object.user.username if object.user.present?
   end
 
   def average_rating

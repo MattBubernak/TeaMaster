@@ -24,6 +24,7 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients/1/edit
   def edit
+    redirect_to root_path unless current_user_session.try(:user).try(:is_admin?)
   end
 
   def complete_hash

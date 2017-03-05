@@ -15,4 +15,6 @@
   = f.file_field :img
 
   .actions
-    = f.submit 'Save'
+    %button.btn.waves-effect.waves-light{:name => "submit", :type => "submit"}
+      Save
+      %i.material-icons.right save

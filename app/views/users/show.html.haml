@@ -1,12 +1,26 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+.container
+  .row
+    .card
+      .card-content
+        %span.card-title.center
+          %h4
+            = @user.full_name
+        .divider
+        %h5 Joined
+        = @user.joined_date
+        %h5 Submitted Recipes
+        = @user.recipe_submitted_count
+        %h5 Contact
+        = @user.email
+        - if @user.gender == "male"
+          .fa.fa-male.fa-3x.light-green-text
+        - if @user.gender == "female"
+          .fa.fa-female.fa-3x.light-green-text
+        - else
+          "no gender"
+
+      .card-action
+

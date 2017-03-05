@@ -40,10 +40,11 @@
           %p.center
             This recipe comes from:
             = link_to @recipe.source_url, @recipe.source_url
-        %p.center
-          = "Submitted By:"
-          = link_to @recipe.submitter_username, user_path(@recipe.user.id)
-          Submitted On: #{@recipe.created_date}
+        - if @recipe.user.present?
+          %p.center
+            = "Submitted By:"
+            = link_to @recipe.submitter_username, user_path(@recipe.user.id)
+            Submitted On: #{@recipe.created_date}
 
     %h2.center Reviews
     .center

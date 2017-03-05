@@ -14,7 +14,7 @@
   %body
     %nav.light-green.darken-2
       .nav-wrapper
-        %a.brand-logo.center{:href => welcome_index_path, :style => "vertical-align:middle"}
+        %a.brand-logo.cursive.center{:href => welcome_index_path, :style => "vertical-align:middle"}
           / %img{:src =>"/images/logo.png", :style => "height:50px; width:70px; color:white"}
           TeaMaster
         %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
@@ -32,10 +32,12 @@
         %ul.right.hide-on-med-and-down
           - if current_user_session
             %li
-              %a{:href => "#"}
+              %a{:href => edit_user_path(current_user_session.user)}
+                %i.fa.fa-user-circle
                 = current_user_session.user.username
             %li
               %a{:href => logout_path}
+                %i.fa.fa-sign-out
                 Logout
           - else
             %li

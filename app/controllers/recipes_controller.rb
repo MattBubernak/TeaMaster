@@ -80,6 +80,6 @@ class RecipesController < ApplicationController
     def recipe_params
       puts params
       params[:recipe][:steep_instruction_attributes][:temperature] = params[:recipe][:steep_instruction_attributes][:temperature].to_i if params[:recipe][:steep_instruction_attributes].present? && params[:recipe][:steep_instruction_attributes][:temperature].present?
-      params.require(:recipe).permit(:name, :description, :source_url, :preperation_notes, :recipe_id_list, steep_instruction_attributes: [:time, :temperature, :recipe_id], ingredient_measurements_attributes: [:id, :ingredient_id, :count, :unit_type, :_destroy])
+      params.require(:recipe).permit(:name, :user_id, :description, :source_url, :preperation_notes, :recipe_id_list, steep_instruction_attributes: [:time, :temperature, :recipe_id], ingredient_measurements_attributes: [:id, :ingredient_id, :count, :unit_type, :_destroy])
     end
 end
