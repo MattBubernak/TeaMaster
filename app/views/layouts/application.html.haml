@@ -21,11 +21,11 @@
           %i.material-icons menu
 
         %ul.left.hide-on-med-and-down
-          %li
+          %li{:class => ('active' if params[:controller] == 'ingredients')}
             %a.nav-link{:href => ingredients_path}
               %i.fa.fa-leaf
               Ingredients
-          %li
+          %li{:class => ('active' if params[:controller] == 'recipes')}
             %a.nav-link{:href => recipes_path}
               %i.fa.fa-book
               Recipes

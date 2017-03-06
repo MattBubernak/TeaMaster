@@ -16,11 +16,7 @@
 
 = stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track' => true
 
-.input-field
-  %input#search{:required => "", :type => "search"}/
-  %label.label-icon{:for => "search"}
-    %i.material-icons search
-  %i.material-icons close
+= render partial: 'recipes/recipe_search'
 
 %h1.center.white-text
   /%span#hello_text Hello.

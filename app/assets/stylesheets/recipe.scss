@@ -24,3 +24,13 @@ $light-green: #8bc34a;
   font-size: .8rem;
   font-style: italic;
 }
+
+.recipe-search {
+  padding-top: 20px;
+  width: 100%;
+  display: inline-block;
+  box-sizing: content-box;
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+  vertical-align: middle;
+}

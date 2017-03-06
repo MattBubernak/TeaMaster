@@ -5,6 +5,16 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    @recipes = @recipes.where("name ILIKE ?", "%" + params[:name] + "%") if params[:name]
+    respond_to do |format|
+      format.html {
+        render :index
+      }
+      format.json {
+        recipe_hashes = @recipes.map {|recipe| recipe.as_json.merge('url' => recipe.decorate.link_to_recipe) }
+        render json: recipe_hashes , :only => ["id","name","url"]
+      }
+    end
   end
 
   # GET /recipes/1

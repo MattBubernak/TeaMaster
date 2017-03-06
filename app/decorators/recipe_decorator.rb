@@ -15,6 +15,10 @@ class RecipeDecorator < Draper::Decorator
     object.name.titleize
   end
 
+  def link_to_recipe
+    h.recipe_url(object.id)
+  end
+
   def ingredient_list_string
     object.ingredient_measurements.decorate.map{ |i| i.ingredient.name}.join(" - ")
   end

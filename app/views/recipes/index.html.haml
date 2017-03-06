@@ -1,6 +1,8 @@
 .row.row-eq-height
-  .col.s10
-    %h1 Recipes
+  .col.s3
+    %h2.cursive Recipes
+  .col.s7
+    = render partial: 'recipes/recipe_search'
   .col.s2.valign-wrapper.center
     %a.btn.btn-large.waves-effect.waves-light.light-green.lighten-4.black-text{ href: new_recipe_path }
       %i.material-icons add

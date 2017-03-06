@@ -11,7 +11,7 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
 
-  %h4 Required
+  %h5 Required
   .field
     = f.label :username
     = f.text_field :username
@@ -27,7 +27,7 @@
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
-  %h4 Optional
+  %h5 Optional
   .field
     = f.label :gender
     = f.select :gender, [["Male",:male],["Female",:female]]

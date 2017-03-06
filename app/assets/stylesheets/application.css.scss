@@ -15,6 +15,7 @@
 @import "font-awesome";
 @import "materialize/components/color";
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css');
 
 //@import "materialize/components/font/roboto/";
 $primary-color: color("light-green", "base") !default;
@@ -23,7 +24,6 @@ $tabs-underline-color: color("light-green", "base")!default;
 $tabs-text-color: color("light-green", "base")!default;
 $roboto-font-path: '/assets/fonts/roboto/';
 @import "materialize";
-
 
 .card {
   background-color: light-green
