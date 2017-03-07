@@ -5,6 +5,15 @@ class IngredientsController < ApplicationController
   # GET /ingredients.json
   def index
     @ingredients = Ingredient.all
+    respond_to do |format|
+      format.html {
+        render :index
+      }
+      format.json {
+        ingredient_hashes = @ingredients.map {|ingredient| ingredient.as_json.merge('url' => ingredient.decorate.link_to_ingredient) }
+        render json: ingredient_hashes , :only => ["id","name","url"]
+      }
+    end
   end
 
   # GET /ingredients/1
@@ -16,6 +25,8 @@ class IngredientsController < ApplicationController
       @related_recipes << i if i.ingredient_measurements.any? { |ingredient_measurement| ingredient_measurement.ingredient_id == @ingredient.id }
     end
   end
+
+
 
   # GET /ingredients/new
   def new

@@ -1,0 +1,67 @@
+:javascript
+  $(function() {
+    $('select').material_select();
+    $(".recipe-search").select2({
+      ajax: {
+        url: '#{recipes_url}',
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            name: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data, params) {
+          // parse the results into the format expected by Select2
+          // since we are using custom formatting functions we do not need to
+          // alter the remote JSON data, except to indicate that infinite
+          // scrolling can be used
+          console.log(data);
+          params.page = params.page || 1;
+
+          return {
+            results: $.map (data, function(recipe, i){return {id: recipe.id, text: recipe.name, url: recipe.url}}),
+            pagination: {
+              more: (params.page * 30) < data.total_count
+            }
+          };
+        },
+        cache: true
+      },
+      escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+      minimumInputLength: 1,
+      //templateResult: formatRepo, // omitted for brevity, see the source of this page
+      //templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+    });
+
+    $(".recipe-search").on("select2:select", function(e) {
+          window.location.href = e.params.data.url;
+        })
+
+  });
+:css
+  .search-section {
+    padding-top: 3%;
+  }
+  .select2-dropdown {
+    opacity: .9;
+  }
+  .select2-container--default .select2-selection--single {
+    opacity: .9;
+  }
+  .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color:#8bc34a;
+  }
+
+
+
+.row
+  .col.s10.offset-s1
+    .search-section.valign-wrapper
+      .light-green-text Recipe Search
+      %i.material-icons.prefix.light-green-text.valign search
+      %select.recipe-search.valign.light-green
+        %option{:selected => "selected", :value => "3620194"}
+
+

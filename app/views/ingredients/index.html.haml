@@ -1,6 +1,8 @@
 .row.row-eq-height
-  .col.s10
+  .col.s3
     %h2.cursive Ingredients
+  .col.s7
+    = render partial: 'ingredients/ingredient_search'
   .col.s2.valign-wrapper.center
     %a.btn.btn-large.waves-effect.waves-light.light-green.lighten-4.black-text{ href: new_ingredient_path }
       %i.material-icons add
