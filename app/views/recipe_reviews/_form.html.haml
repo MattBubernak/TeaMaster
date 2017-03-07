@@ -1,21 +1,23 @@
-= form_for @recipe_review do |f|
-  - if @recipe_review.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@recipe_review.errors.count, "error")} prohibited this recipe_review from being saved:"
-      %ul
-        - @recipe_review.errors.full_messages.each do |msg|
-          %li= msg
-  %h6.center.light-text-80 What did you think?
-  %p.small-text.center If you tried this tea, leave some feedback.
-  = f.hidden_field :recipe_id, value: @recipe.id
-  = f.hidden_field :user_id, value: current_user.id
-  = f.label :rating, class: ''
-  = f.number_field :rating, class: '', required: 'true'
-  = f.label :comment, class: ''
-  = f.text_area :comment, class: '', required: 'true'
+.card.review_card
+  .card-content.black-text{style: "height:80%"}
+    = form_for @recipe_review do |f|
+      - if @recipe_review.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@recipe_review.errors.count, "error")} prohibited this recipe_review from being saved:"
+          %ul
+            - @recipe_review.errors.full_messages.each do |msg|
+              %li= msg
+      %h6.center.light-text-80 What did you think?
+      %p.small-text.center If you tried this tea, leave some feedback.
+      = f.hidden_field :recipe_id, value: @recipe.id
+      = f.hidden_field :user_id, value: current_user.id
+      = f.label :rating, class: ''
+      = f.number_field :rating, class: '', required: 'true'
+      = f.label :comment, class: ''
+      = f.text_area :comment, class: '', required: 'true'
 
-
-  .actions
-    %button.btn.waves-effect.waves-light{:name => "submit", :type => "submit"}
-      Save
-      %i.material-icons.right save
+  .card-action
+    .actions
+      %button.btn.waves-effect.waves-light{:name => "submit", :type => "submit"}
+        Save
+        %i.material-icons.right save
