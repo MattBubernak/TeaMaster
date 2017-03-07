@@ -8,19 +8,33 @@
         %span.card-title.center
           %h4
             = @user.full_name
+        - if @user.about.present?
+          .row.center
+            %blockquote
+              %p
+                = @user.about
         .divider
-        %h5 Joined
-        = @user.joined_date
-        %h5 Submitted Recipes
-        = @user.recipe_submitted_count
-        %h5 Contact
-        = @user.email
-        - if @user.gender == "male"
-          .fa.fa-male.fa-3x.light-green-text
-        - if @user.gender == "female"
-          .fa.fa-female.fa-3x.light-green-text
-        - else
-          "no gender"
-
+        .row
+          .col.s6
+            .row
+              %h5 Joined
+              = @user.joined_date
+            .row
+              %h5 Gender
+              - if @user.gender == "male"
+                .fa.fa-male.fa-3x.light-green-text
+              - elsif @user.gender == "female"
+                .fa.fa-female.fa-3x.light-green-text
+            - if current_user && current_user.is_admin?
+              .row
+                %h5 Contact
+                = @user.email
+          .col.s6
+            %h5
+              = "#{@user.recipe_submitted_count} Submitted Recipes"
+            %ul
+              - @user.recipes.each do |recipe|
+                %li
+                  = link_to recipe.name, recipe.decorate.link_to_recipe
       .card-action
 

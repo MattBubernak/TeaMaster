@@ -60,15 +60,26 @@
   %footer.page-footer.light-green.darken-2
     .container
       .row
-        .col.l6.s12
-        .col.l4.offset-l2.s12.center
+        .col.s6.right.center
           %a.grey-text.text-lighten-3{:href => recipes_path} Recipes /
           %a.grey-text.text-lighten-3{:href => ingredients_path} Ingredients /
           %a.grey-text.text-lighten-3{:href => about_path} About /
           %a.grey-text.text-lighten-3{:href => about_path} Blog
-    .footer-copyright
-      .container.center
-        © #{Date.today.year} BirdBucket Productions
+    .footer-copyright{:style => "padding-bottom:0px"}
+      .container
+        .row{:style => "margin-bottom:2px"}
+          .col.s6.offset-s3.center
+            © #{Date.today.year} BirdBucket Productions
+            %br
+            .light-text-80.small-text
+              Boulder - CO - USA
+          .col.s3.center.light-text-80
+            %a{:href => "#"}
+              %i.fa.fa-github-square.fa-2x.white-text{"aria-hidden" => "true"}
+            %a{:href => "#"}
+              %i.fa.fa-facebook-square.fa-2x.white-text{"aria-hidden" => "true"}
+            %a{:href => "#"}
+              %i.fa.fa-twitter-square.fa-2x.white-text{"aria-hidden" => "true"}
 
 :javascript
   $( document ).ready(function(){
