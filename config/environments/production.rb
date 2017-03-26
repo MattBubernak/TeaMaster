@@ -1,7 +1,8 @@
+server '54-202-105-198', user: 'deploy', roles: %w{web app db}
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  server '54-202-105-198', user: 'deploy', roles: %w{web app db}
   # Code is not reloaded between requests.
   config.cache_classes = true
 
