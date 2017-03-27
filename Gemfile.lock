@@ -91,10 +91,11 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.2)
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
+    draper (3.0.0.pre1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
       request_store (~> 1.0)
     erb2haml (0.1.5)
       html2haml
@@ -251,7 +252,7 @@ DEPENDENCIES
   capistrano3-puma
   cocoon
   coffee-rails (~> 4.1.0)
-  draper
+  draper (= 3.0.0.pre1)
   erb2haml
   figaro
   font-awesome-rails

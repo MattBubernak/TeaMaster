@@ -34,7 +34,7 @@ gem 'paperclip', '~> 5.1'
 
 # Decorators
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
-gem 'draper'
+gem 'draper', '3.0.0.pre1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
