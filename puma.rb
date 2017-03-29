@@ -8,7 +8,7 @@ app_path = File.expand_path("../..", __FILE__)
 shared_path = "#{app_path}/shared"
 rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
-File.open("foo.txt", "w") {}
+File.open("/tmp/foo1.txt", "w") {}
 # Set up socket location
 bind "unix://#{shared_path}/tmp/sockets/puma.sock"
 
