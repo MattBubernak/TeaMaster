@@ -1,5 +1,3 @@
-lock '3.8.0'
-
 set :application, 'teamaster'
 set :repo_url, 'git@github.com:MattBubernak/TeaMaster.git' # Edit this to match your repository
 set :branch, :master
