@@ -4,8 +4,8 @@
 # by Capistrano - `/home/deploy/my_app/shared`
 workers 2
 threads 1, 6
-app_path = File.expand_path("../../../..", __FILE__)
-shared_path = "#{app_path}/shared"
+app_path = "/home/deploy/teamaster"
+shared_path = "/home/deploy/teamaster/shared"
 rails_env = ENV['RAILS_ENV'] || "production"
 environment rails_env
 # Set up socket location
