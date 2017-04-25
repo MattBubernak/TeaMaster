@@ -32,9 +32,10 @@
     %i.fa.fa-book.fa-3x.light-green-text
     %h4
       Recipe of the Day
-    %a{:href => recipe_path(@recipe)}
-      #recipe_of_the_day
-        = render partial: 'recipes/list_card', locals: {recipe: @recipe}
+    -if @recipe
+      %a{:href => recipe_path(@recipe)}
+        #recipe_of_the_day
+          = render partial: 'recipes/list_card', locals: {recipe: @recipe}
   .col.s4#third_col.center
     %i.fa.fa-comments.fa-3x.light-green-text
     %h4
