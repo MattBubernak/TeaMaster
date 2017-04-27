@@ -8,10 +8,8 @@ class UserSessionsController < ApplicationController
 
     @user_session = UserSession.new(session_params)
     if @user_session.save
-      puts "Success"
-      redirect_to root_url, notice: 'Logged In.'
+      redirect_to root_url, notice: "Welcome, #{@user_session.username}."
     else
-      puts "Failed"
       render :new,  notice: 'Login Failed'
     end
   end
@@ -20,7 +18,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.find
     @user_session.destroy
     # current_user_session.destroy
-    redirect_to root_url, notice: 'Successfully logged out.'
+    redirect_to root_url, notice: "Goodbye!"
   end
 
 end

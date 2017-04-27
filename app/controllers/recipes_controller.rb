@@ -47,7 +47,7 @@ class RecipesController < ApplicationController
     # @recipe.ingredient_measurements = IngredientMeasurement.create(recipe_params[:ingredient_measurement_attributes])
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully created!' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
@@ -61,7 +61,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated!' }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit }

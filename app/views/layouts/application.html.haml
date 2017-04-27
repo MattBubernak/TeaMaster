@@ -14,6 +14,7 @@
     = stylesheet_link_tag    'equal-height-columns', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
     %nav.light-green.darken-2
       .nav-wrapper
@@ -56,6 +57,9 @@
             %a{:href => recipes_path, :title => "Recipes"} Recipes
             %form
 
+    - if flash[:notice]
+      :javascript
+        Materialize.toast("#{flash[:notice]}", 4000)
 
     .container#body-container{style: "width: 85%"}
       = yield
