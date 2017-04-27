@@ -2,6 +2,9 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:name => "description", :content => "HerbalTeaMaster is a website for sharing and aggregating herbal tea recipe mixes and blends!"}/
+
     %title TeaMaster
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
@@ -14,43 +17,43 @@
   %body
     %nav.light-green.darken-2
       .nav-wrapper
-        %a.brand-logo.cursive.center{:href => welcome_index_path, :style => "vertical-align:middle"}
+        %a.brand-logo.cursive.center{:href => welcome_index_path, :title => "Index", :style => "vertical-align:middle"}
           / %img{:src =>"/images/logo.png", :style => "height:50px; width:70px; color:white"}
           TeaMaster
-        %a.button-collapse{"data-activates" => "nav-mobile", :href => "#"}
+        %a.button-collapse{"data-activates" => "nav-mobile", :href => "#", :title => "Menu"}
           %i.material-icons menu
 
         %ul.left.hide-on-med-and-down
           %li{:class => ('active' if params[:controller] == 'ingredients')}
-            %a.nav-link{:href => ingredients_path}
+            %a.nav-link{:href => ingredients_path, :title => "Ingredients"}
               %i.fa.fa-leaf
               Ingredients
           %li{:class => ('active' if params[:controller] == 'recipes')}
-            %a.nav-link{:href => recipes_path}
+            %a.nav-link{:href => recipes_path, :title => "Recipes"}
               %i.fa.fa-book
               Recipes
         %ul.right.hide-on-med-and-down
           - if current_user_session
             %li
-              %a{:href => edit_user_path(current_user_session.user)}
+              %a{:href => edit_user_path(current_user_session.user), :title => "Edit User"}
                 %i.fa.fa-user-circle
                 = current_user_session.user.username
             %li
-              %a{:href => logout_path}
+              %a{:href => logout_path, :title => "Logout"}
                 %i.fa.fa-sign-out
                 Logout
           - else
             %li
-              %a{:href => new_user_path}
+              %a{:href => new_user_path, :title => "Signup"}
                 Signup
             %li
-              %a{:href => login_path}
+              %a{:href => login_path, :title => "Login"}
                 Login
         %ul#nav-mobile.side-nav
           %li
-            %a{:href => ingredients_path} Ingredients
+            %a{:href => ingredients_path, :title => "Ingredients"} Ingredients
           %li
-            %a{:href => recipes_path} Recipes
+            %a{:href => recipes_path, :title => "Recipes"} Recipes
             %form
 
 
@@ -61,10 +64,10 @@
     .container
       .row
         .col.s6.right.center
-          %a.grey-text.text-lighten-3{:href => recipes_path} Recipes /
-          %a.grey-text.text-lighten-3{:href => ingredients_path} Ingredients /
-          %a.grey-text.text-lighten-3{:href => about_path} About /
-          %a.grey-text.text-lighten-3{:href => about_path} Blog
+          %a.grey-text.text-lighten-3{:href => recipes_path, :title => "Recipes"} Recipes /
+          %a.grey-text.text-lighten-3{:href => ingredients_path, :title => "Ingredients" } Ingredients /
+          %a.grey-text.text-lighten-3{:href => about_path, :title => "About" } About /
+          %a.grey-text.text-lighten-3{:href => about_path, :title => "Blog"} Blog
     .footer-copyright{:style => "padding-bottom:0px"}
       .container
         .row{:style => "margin-bottom:2px"}
@@ -76,7 +79,7 @@
           .col.s3.center.light-text-80
             %a{:href => "#"}
               %i.fa.fa-github-square.fa-2x.white-text
-            %a{:href => "#"}
+            %a{:href => "https://www.facebook.com/BirdBucketProductions/"}
               %i.fa.fa-facebook-square.fa-2x.white-text
             %a{:href => "#"}
               %i.fa.fa-twitter-square.fa-2x.white-text
