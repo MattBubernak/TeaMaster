@@ -19,8 +19,8 @@ class RecipeDecorator < Draper::Decorator
     sprintf("%+d", object.vote_score)
   end
 
-  def vote_count
-    object.vote_count
+  def vote_count_string
+    "#{ActionController::Base.helpers.pluralize(object.vote_count,'vote')} votes casted."
   end
 
   def link_to_recipe

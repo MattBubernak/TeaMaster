@@ -76,7 +76,7 @@ class RecipesController < ApplicationController
     @recipe.upvotes = @recipe.upvotes + 1
     @recipe.save
     respond_to do |format|
-      format.json { render json: {:score => @recipe.decorate.vote_score_string}, status: :ok }
+      format.json { render json: {:score => @recipe.decorate.vote_score_string, :count => @recipe.decorate.vote_count_string}, status: :ok }
     end
   end
 
@@ -85,7 +85,7 @@ class RecipesController < ApplicationController
     @recipe.downvotes = @recipe.downvotes + 1
     @recipe.save
     respond_to do |format|
-      format.json { render json: {:score => @recipe.decorate.vote_score_string}, status: :ok }
+      format.json { render json: {:score => @recipe.decorate.vote_score_string, :count => @recipe.decorate.vote_count_string}, status: :ok }
     end
   end
 
