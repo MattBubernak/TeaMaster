@@ -1,0 +1,42 @@
+:javascript
+  $( document ).ready(function() {
+    $( "#upvote_button" ).click(function() {
+      $.ajax({
+        type: "POST",
+        url: "#{upvote_recipe_url(@recipe.id)}",
+        success: function(data) {
+          Materialize.toast("+1!", 750)
+          $('#popularity_score').text(data["score"]);
+        }
+      });
+      disableButtons();
+    });
+    $( "#downvote_button" ).click(function() {
+      $.ajax({
+        type: "POST",
+        url: "#{downvote_recipe_url(@recipe.id)}",
+        success: function(data) {
+          Materialize.toast("-1!", 750)
+          $('#popularity_score').text(data["score"]);
+        }
+      });
+      disableButtons();
+    });
+
+    function disableButtons() {
+      $("#downvote_button").prop('disabled', true);
+      $("#upvote_button" ).prop('disabled', true);
+    }
+  });
+
+.card
+  .card-content.black-text{style: "height:5%"}
+    %b.light-text-70
+      Recipe Popularity
+    %h4#popularity_score
+      = @recipe.vote_score_string
+  .card-action
+    %button.btn.btn-xl#upvote_button
+      .fa.fa-thumbs-up
+    %button.btn.btn-xl#downvote_button
+      .fa.fa-thumbs-down

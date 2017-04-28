@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:upvote,:downvote]
 
   # GET /recipes
   # GET /recipes.json
@@ -67,6 +68,24 @@ class RecipesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def upvote
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.upvotes = @recipe.upvotes + 1
+    @recipe.save
+    respond_to do |format|
+      format.json { render json: {:score => @recipe.decorate.vote_score_string}, status: :ok }
+    end
+  end
+
+  def downvote
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.downvotes = @recipe.downvotes + 1
+    @recipe.save
+    respond_to do |format|
+      format.json { render json: {:score => @recipe.decorate.vote_score_string}, status: :ok }
     end
   end
 

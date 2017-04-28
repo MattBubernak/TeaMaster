@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303040227) do
+ActiveRecord::Schema.define(version: 20170428041540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +22,9 @@ ActiveRecord::Schema.define(version: 20170303040227) do
     t.string   "unit_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["ingredient_id"], name: "index_ingredient_measurements_on_ingredient_id", using: :btree
+    t.index ["recipe_id"], name: "index_ingredient_measurements_on_recipe_id", using: :btree
   end
-
-  add_index "ingredient_measurements", ["ingredient_id"], name: "index_ingredient_measurements_on_ingredient_id", using: :btree
-  add_index "ingredient_measurements", ["recipe_id"], name: "index_ingredient_measurements_on_recipe_id", using: :btree
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
@@ -46,19 +44,20 @@ ActiveRecord::Schema.define(version: 20170303040227) do
     t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_recipe_reviews_on_recipe_id", using: :btree
+    t.index ["user_id"], name: "index_recipe_reviews_on_user_id", using: :btree
   end
-
-  add_index "recipe_reviews", ["recipe_id"], name: "index_recipe_reviews_on_recipe_id", using: :btree
-  add_index "recipe_reviews", ["user_id"], name: "index_recipe_reviews_on_user_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "preperation_notes"
     t.string   "source_url"
     t.integer  "user_id"
+    t.integer  "upvotes",           default: 0
+    t.integer  "downvotes",         default: 0
   end
 
   create_table "steep_instructions", force: :cascade do |t|
@@ -67,9 +66,8 @@ ActiveRecord::Schema.define(version: 20170303040227) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "temperature"
+    t.index ["recipe_id"], name: "index_steep_instructions_on_recipe_id", using: :btree
   end
-
-  add_index "steep_instructions", ["recipe_id"], name: "index_steep_instructions_on_recipe_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

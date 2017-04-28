@@ -15,6 +15,14 @@ class RecipeDecorator < Draper::Decorator
     object.name.titleize
   end
 
+  def vote_score_string
+    sprintf("%+d", object.vote_score)
+  end
+
+  def vote_count
+    object.vote_count
+  end
+
   def link_to_recipe
     h.recipe_url(object.id)
   end

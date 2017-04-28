@@ -60,6 +60,8 @@
       = render partial: 'steep_instructions/recipe_display', locals: {steep_instruction: @recipe.steep_instruction.decorate}
   .col.s3.center
     = render partial: 'preperation_notes', locals: {recipe: @recipe}
+  .col.s3.center
+    = render partial: 'votes_box', locals: {recipe: @recipe}
   - if @recipe_review
     .col.s3.center
       = render partial: 'recipe_reviews/form'
