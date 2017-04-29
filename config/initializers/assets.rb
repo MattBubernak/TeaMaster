@@ -16,4 +16,5 @@ Rails.application.config.assets.precompile += %w( recipe.scss )
 Rails.application.config.assets.precompile += %w( welcome.scss )
 Rails.application.config.assets.precompile += %w( equal-height-columns.css )
 Rails.application.config.assets.precompile += %w( images )
+Rails.application.config.assets.precompile += Ckeditor.assets
 Rails.application.config.assets.precompile += %w(ckeditor/config.js)

@@ -25,6 +25,6 @@ module TeaMaster
 
     config.assets.paths << Rails.root.join("vendor", "assets")
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
-    config.assets.precompile += %w( ckeditor/* )
+    config.assets.precompile += Ckeditor.assets
   end
 end

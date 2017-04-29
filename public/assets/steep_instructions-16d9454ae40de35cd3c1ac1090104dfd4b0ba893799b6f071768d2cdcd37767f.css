@@ -1,0 +1,20 @@
+/* line 9, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/steep_instructions.scss */
+.steep_instruction_title {
+  font-size: 1rem;
+}
+
+/* line 13, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/steep_instructions.scss */
+.stacked_icon_text {
+  font-size: 1.2rem;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 19, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/steep_instructions.scss */
+.stacked_icon_text i {
+  font-size: 1.5rem;
+}
+/* line 23, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/steep_instructions.scss */
+.stacked_icon_text span {
+  display: block;
+}

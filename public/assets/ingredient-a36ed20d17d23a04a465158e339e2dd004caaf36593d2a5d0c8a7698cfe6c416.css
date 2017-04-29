@@ -1,0 +1,11 @@
+/* line 5, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/ingredient.scss */
+.ingredient-img {
+  height: 100px;
+  width: 100px;
+}
+
+/* line 10, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/ingredient.scss */
+.ingredient-img-big {
+  height: 90%;
+  width: 90%;
+}

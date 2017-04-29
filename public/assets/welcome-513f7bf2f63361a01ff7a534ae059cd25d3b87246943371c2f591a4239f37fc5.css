@@ -1,0 +1,14 @@
+/* line 5, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/welcome.scss */
+body {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url("/images/background-2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/background.jpg");
+}
+
+/* line 21, /Users/mattbubernak/projects/TeaMaster/app/assets/stylesheets/welcome.scss */
+#recipe_of_the_day {
+  opacity: 0.7 !important;
+}
