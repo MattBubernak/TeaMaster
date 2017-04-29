@@ -13,7 +13,7 @@
 //= require jquery
 //= require turbolinks
 //= require materialize-sprockets
-//= require_tree .
 //= require cocoon
 //= require select2
 //= require ckeditor/init
+//= require_tree .
