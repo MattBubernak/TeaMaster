@@ -15,5 +15,5 @@
 //= require materialize-sprockets
 //= require cocoon
 //= require select2
-//= require ckeditor/init
 //= require_tree .
+//= require ckeditor/init
