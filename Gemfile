@@ -50,6 +50,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'authlogic'
 
+gem 'sitemap_generator'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
