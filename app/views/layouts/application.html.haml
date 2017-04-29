@@ -16,6 +16,7 @@
     = csrf_meta_tags
 
   %body
+    = render partial: "layouts/google_analytics"
     %nav.light-green.darken-2
       .nav-wrapper
         %a.brand-logo.cursive.center.shadow{:href => welcome_index_path, :title => "Index", :style => "vertical-align:middle"}
