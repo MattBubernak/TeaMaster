@@ -1,0 +1,8 @@
+- if can? :create, Post
+  .fixed-action-btn.toolbar
+    %a.btn.btn-floating.waves-effect.waves-light.light-green.black-text{ href: new_post_path }
+      %i.material-icons add
+
+.row
+  - @posts.each do |post|
+    = render partial: 'posts/list_card', locals: {post: post}

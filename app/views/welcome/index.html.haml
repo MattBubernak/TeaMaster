@@ -42,3 +42,11 @@
       Share Recipes
     %p.left
       We make it easy to submit your own mixes. Get feedback on your special blends.
+
+- if @post
+  .row.white-text.light-text-90#columns
+    %h4.center
+      Latest from the TeaMaster team.
+    #latest_blog_post
+      = render partial: 'posts/list_card', locals: {post: @post}
+

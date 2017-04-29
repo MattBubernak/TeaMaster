@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /ingredients
   # GET /ingredients.json

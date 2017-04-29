@@ -1,0 +1,14 @@
+.col-sm-11.col-xs-12
+  .card.darken-1
+    .card-content.black-text.center
+      %span.card-title
+        %h4
+          = post.title
+        .small-text
+          Written:
+          = post.created_at.strftime('%b %d, %Y')
+          = ", By:"
+          = link_to post.user.name, user_path(post.user.id)
+      %div= raw post.body.truncate(358)
+    .card-action
+      = link_to "READ MORE", post_path(post)

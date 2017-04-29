@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   enum gender: [ :male, :female]
   has_many :recipes
+  has_many :posts
   def is_admin?
     admin
   end

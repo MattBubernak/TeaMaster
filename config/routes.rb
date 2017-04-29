@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :recipe_reviews
   get 'user_sessions/new'
 
@@ -33,6 +34,12 @@ Rails.application.routes.draw do
 
   post 'upvote/:recipe_id' => "recipes#upvote", as: :upvote_recipe
   post 'downvote/:recipe_id' => "recipes#downvote", as: :downvote_recipe
+
+
+  # Blog Routes
+  get 'blog' => "posts#index", as: :blog
+  resources :posts
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

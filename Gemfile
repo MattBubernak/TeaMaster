@@ -52,6 +52,11 @@ gem 'authlogic'
 
 gem 'sitemap_generator'
 
+gem 'cancancan'
+
+# blog related gems
+gem 'ckeditor'
+gem 'simple_form'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

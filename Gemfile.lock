@@ -60,6 +60,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (9.0.6)
+    cancancan (1.16.0)
     capistrano (3.8.1)
       airbrussh (>= 1.0.0)
       i18n
@@ -80,6 +81,9 @@ GEM
       capistrano (~> 3.7)
       capistrano-bundler
       puma (~> 3.4)
+    ckeditor (4.2.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -155,6 +159,7 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
+    orm_adapter (0.5.0)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -207,6 +212,9 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.8.0)
+    simple_form (3.4.0)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     sitemap_generator (5.3.1)
       builder (~> 3.0)
     spring (2.0.1)
@@ -249,12 +257,14 @@ DEPENDENCIES
   authlogic
   bcrypt (~> 3.1.7)
   byebug
+  cancancan
   capistrano
   capistrano-bundler
   capistrano-passenger
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
+  ckeditor
   cocoon
   coffee-rails (~> 4.1.0)
   draper (= 3.0.0.pre1)
@@ -272,6 +282,7 @@ DEPENDENCIES
   rails (= 5.0.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_form
   sitemap_generator
   spring
   sprockets-rails

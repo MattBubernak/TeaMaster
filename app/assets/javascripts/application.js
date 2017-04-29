@@ -16,3 +16,4 @@
 //= require_tree .
 //= require cocoon
 //= require select2
+//= require ckeditor/init

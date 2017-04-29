@@ -35,6 +35,10 @@
               %i.fa.fa-book
               Recipes
         %ul.right.hide-on-med-and-down
+          %li{:class => ('active' if params[:controller] == 'posts')}
+            %a{:href => blog_path, :title => "Blog"}
+              %i.fa.fa-rss
+              Blog
           - if current_user_session
             %li
               %a{:href => edit_user_path(current_user_session.user), :title => "Edit User"}
@@ -47,17 +51,40 @@
           - else
             %li
               %a{:href => new_user_path, :title => "Signup"}
+                %i.fa.fa-user-plus
                 Signup
             %li
               %a{:href => login_path, :title => "Login"}
+                %i.fa.fa-sign-in
                 Login
         %ul#nav-mobile.side-nav
           %li
-            %a{:href => ingredients_path, :title => "Ingredients"} Ingredients
+            %a{:href => ingredients_path, :title => "Ingredients"}
+              %i.fa.fa-leaf
+              Ingredients
           %li
-            %a{:href => recipes_path, :title => "Recipes"} Recipes
+            %a{:href => recipes_path, :title => "Recipes"}
+              %i.fa.fa-book
+              Recipes
             %form
-
+          - if current_user_session
+            %li
+              %a{:href => edit_user_path(current_user_session.user), :title => "Edit User"}
+                %i.fa.fa-user-circle
+                = current_user_session.user.username
+            %li
+              %a{:href => logout_path, :title => "Logout"}
+                %i.fa.fa-sign-out
+                Logout
+          - else
+            %li
+              %a{:href => new_user_path, :title => "Signup"}
+                %i.fa.fa-user-plus
+                Signup
+            %li
+              %a{:href => login_path, :title => "Login"}
+                %i.fa.fa-sign-in
+                Login
     - if flash[:notice]
       :javascript
         Materialize.toast("#{flash[:notice]}", 4000)
@@ -72,7 +99,7 @@
           %a.grey-text.text-lighten-3{:href => recipes_path, :title => "Recipes"} Recipes /
           %a.grey-text.text-lighten-3{:href => ingredients_path, :title => "Ingredients" } Ingredients /
           %a.grey-text.text-lighten-3{:href => about_path, :title => "About" } About /
-          %a.grey-text.text-lighten-3{:href => about_path, :title => "Blog"} Blog
+          %a.grey-text.text-lighten-3{:href => blog_path, :title => "Blog"} Blog
     .footer-copyright{:style => "padding-bottom:0px"}
       .container
         .row{:style => "margin-bottom:2px"}
