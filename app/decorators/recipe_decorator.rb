@@ -11,6 +11,29 @@ class RecipeDecorator < Draper::Decorator
   #     end
   #   end
 
+  def ld_json
+    ld_json = {
+      "@context" => "http://schema.org",
+      "@type" => "Recipe",
+      "name" => object.name,
+      "author" => object.user.name,
+      "description" => object.description,
+      "image" => "http://herbalteamaster.com/images/missing-ingredient.png",
+      "aggregateRating" => {
+        "@type" => "AggregateRating",
+        "ratingValue" => average_rating,
+        "reviewCount" => object.recipe_reviews.count
+      },
+      "recipeIngredient" => object.ingredient_measurements.map{|measurement| measurement.ingredient.name},
+      "recipeInstructions" => [
+        object.preperation_notes
+      ]
+    }
+    '<script type="application/ld+json">' +
+    ld_json.to_json +
+    '</script>'.html_safe
+  end
+
   def name
     object.name.titleize
   end
