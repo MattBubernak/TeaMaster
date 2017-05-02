@@ -60,6 +60,9 @@ gem 'simple_form'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'sidekiq'
+gem "sidekiq-cron"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'figaro'
