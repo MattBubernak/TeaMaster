@@ -16,6 +16,5 @@
           .col.s12
             %a{:href => recipe_path(recipe.id)}
               = render partial: 'recipes/list_card', locals: {recipe: recipe.decorate}
-= link_to 'Edit', edit_ingredient_path(@ingredient)
-\|
-= link_to 'Back', ingredients_path
+- if can? :edit, Ingredient
+  = link_to 'Edit', edit_ingredient_path(@ingredient)

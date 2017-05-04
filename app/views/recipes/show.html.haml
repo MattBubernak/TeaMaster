@@ -5,9 +5,10 @@
     %a.btn-floating.btn-large.light-green.darken-2
       %i.large.material-icons menu
     %ul
-      %li
-        %a.btn-floating.light-green{:href => edit_recipe_path(@recipe)}
-          %i.material-icons edit
+      - if can? :edit, Recipe
+        %li
+          %a.btn-floating.light-green{:href => edit_recipe_path(@recipe)}
+            %i.material-icons edit
       %li
         %a.btn-floating.light-green
           %i.material-icons share
