@@ -4,8 +4,11 @@
   .col.s7
     = render partial: 'ingredients/ingredient_search'
   .col.s2.valign-wrapper.center
-    %a.btn.btn-large.waves-effect.waves-light.light-green.lighten-4.black-text{ href: new_ingredient_path }
+    %a.btn.btn-large.waves-effect.waves-light.light-green.lighten-4.black-text{ href: new_ingredient_path, :class => ('disabled' unless can?(:create,Ingredient)) }
       %i.material-icons add
+    -if cannot?(:create, Ingredient)
+      %small
+        Register to submit an ingredient!
 
 .center.scrollable
   - @ingredients.in_groups_of(4, false).each do |group|

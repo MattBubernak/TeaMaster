@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_session, :current_user
 
-
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.json { head :forbidden }
+      format.html { redirect_to main_app.root_url, :notice => exception.message }
+    end
+  end
 
   # CSRF protection related to authlogic
   protected

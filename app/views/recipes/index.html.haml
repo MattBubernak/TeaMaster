@@ -4,9 +4,11 @@
   .col.s7
     = render partial: 'recipes/recipe_search'
   .col.s2.valign-wrapper.center
-    %a.btn.btn-large.waves-effect.waves-light.light-green.lighten-4.black-text{ href: new_recipe_path }
+    %a.btn.btn-large.waves-effect.waves-light.light-green.btn{ href: new_recipe_path, :class => ('disabled' unless can?(:create,Recipe))}
       %i.material-icons add
-
+    -if cannot?(:create, Recipe)
+      %small
+        Register to submit an recipe!
 .center.scrollable
   - @recipes.in_groups_of(2, false).each do |group|
     .row
