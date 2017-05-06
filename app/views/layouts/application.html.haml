@@ -5,7 +5,8 @@
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{:name => "description", :content => "HerbalTeaMaster is a website for sharing and aggregating herbal tea recipe mixes and blends!"}/
 
-    %title TeaMaster
+    %title
+      = @title || "TeaMaster"
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'ingredient', media: 'all', 'data-turbolinks-track' => true
