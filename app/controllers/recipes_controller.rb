@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = @recipe.decorate
     @title = @recipe.name
+    @description = @recipe.description
     if (current_user && RecipeReview.where({:user_id => current_user.id, :recipe_id => @recipe.id}).count == 0)
       @recipe_review = RecipeReview.new
     end
